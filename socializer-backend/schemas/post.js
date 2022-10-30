@@ -1,4 +1,4 @@
-// schema for the video posts
+// schema for posts
 export default {
   name: 'post',
   title: 'Post',
