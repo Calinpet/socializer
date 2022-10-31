@@ -1,7 +1,7 @@
 // created to make a call to sanity from our api request
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { client } from '../utils/client';
+import { client } from '../../utils/client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const doc = req.body;
