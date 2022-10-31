@@ -1,30 +1,32 @@
 import type { NextPage } from "next"
+import React from 'react';
 import axios from "axios";
 import { Video } from '../types';
 import VideoCard from "../components/VideoCard";
 import NoResults from "../components/NoResults";
 
-
-
 interface IProps {
-  videos: Video[]
+  videos: Video[];
 }
 
 const Home = ({ videos }: IProps) => {
   console.log(videos);
 
   return (
-    <h1 className="flex flec-col gap-10 videos h-full">
+    <div className="flex flec-col gap-10 videos h-full">
       {videos.length ? (
-        videos.map((video: Video) => (
-          <VideoCard post={video} key={video.id} />
+        videos?.map((video: Video) => (
+          <VideoCard post={video} key={video._id} />
         ))
       ) : (
         <NoResults text={'No Videos'} />
       )}
-    </h1>
+    </div>
   )
 }
+
+export default Home;
+
 
 // fetching data 
 // used the docs https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props
@@ -43,5 +45,3 @@ export const getServerSideProps = async () => {
     }
    }
   }
-
-export default Home
