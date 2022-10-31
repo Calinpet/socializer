@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
-import { GoogleLogin, googleLogout  } from '@react-oauth/google';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
 
 import useAuthStore from '../store/authStore';
 import { IUser } from '../types';
@@ -23,9 +23,9 @@ const Navbar = () => {
       <Link href="/">
         <div className='w-[100px] md:w-[130px]'>
           <Image className='cursor-pointer'
-          src={Logo}
-          alt="Socializer"
-          layout='responsive'
+            src={Logo}
+            alt="Socializer"
+            layout='responsive'
           />
         </div>
       </Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
             {userProfile.image && (
               <Link href="/">
                 <>
-                 <Image 
+                  <Image
                     width={40}
                     height={40}
                     className="rounded-full cursor-pointer"
@@ -55,15 +55,15 @@ const Navbar = () => {
               </Link>
             )}
             <button
-                type='button'
-                className=' border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'
-                onClick={() => {
-                  googleLogout();
-                  removeUser();
-                }}
-              >
-                <AiOutlineLogout color='red' fontSize={21} />
-              </button>
+              type='button'
+              className=' border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'
+              onClick={() => {
+                googleLogout();
+                removeUser();
+              }}
+            >
+              <AiOutlineLogout color='red' fontSize={21} />
+            </button>
           </div>
         ) : (
           <GoogleLogin
