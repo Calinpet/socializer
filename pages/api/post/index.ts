@@ -1,13 +1,19 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+// created to make a call to sanity from our api request
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Data = {
-  name: string
-}
+import { allPostsQuery } from '../../../utils/queries';
+import { client } from '../../../utils/client';
 
-export default function handler(
+
+// req: means thst we are using typescript
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
-}
+  res: NextApiResponse) {
+  if(req.method === 'GET') {
+    const query = allPostsQuery();
+    // fetch the data
+    const data = await client.fetch(query);
+
+    res.status(200).json(data);
+  };
+};

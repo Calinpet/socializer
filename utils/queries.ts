@@ -1,4 +1,5 @@
 // create the queries used to make the calls
+// https://www.sanity.io/docs/how-queries-work
 
 export const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){

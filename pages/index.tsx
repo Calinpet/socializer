@@ -1,11 +1,23 @@
 import type { NextPage } from "next"
 import axios from "axios";
+import { Video } from '../types';
 
+interface IProps {
+  videos: Video[]
+}
 
-const Home: NextPage = () => {
+const Home = ({ videos }: IProps) => {
+  console.log(videos);
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
+    <h1 className="flex flec-col gap-10 videos h-full">
+      {videos.length ? (
+        videos.map((video: Video) => (
+          <VideoCard post={video} key={video.id} />
+        ))
+      ) : (
+        <NoResults text={'No Videos'} />
+      )}
     </h1>
   )
 }
@@ -19,7 +31,13 @@ const Home: NextPage = () => {
 export const getServerSideProps = async () => {
    // will be passed to the page component as props
   //  making a get request to our own backend
-   const response = await axios.get();
+   const { data } = await axios.get(`http://localhost:3000/api/post`);
+
+   return {
+    props: {
+      videos: data
+    }
+   }
   }
 
 export default Home
