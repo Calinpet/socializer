@@ -16,7 +16,8 @@ interface IProps {
 
 const VideoCard: NextPage <IProps> = ({ post }) => {
 
-  console.log(post.caption)
+  const [isHover, setIsHover] = useState(false)
+  
   return (
     <div className='flex flex-col border-b-2 border-gray-200 pb-6'>
       <div>
@@ -52,6 +53,8 @@ const VideoCard: NextPage <IProps> = ({ post }) => {
 
       <div className='lg:ml-20 flex gap-4 relative'>
         <div 
+           onMouseEnter={() => setIsHover(true)}
+           onMouseLeave={() => setIsHover(false)}
         className='rounded-3xl'>
           <Link href="/">
             <video
@@ -60,6 +63,12 @@ const VideoCard: NextPage <IProps> = ({ post }) => {
             src={post.video.asset.url}
             ></video>
           </Link>
+          {/* add property isHover */}
+          {isHover && (
+            <div>
+
+            </div>
+          )}
         </div>
       </div>
     </div>
