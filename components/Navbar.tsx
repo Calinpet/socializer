@@ -15,7 +15,7 @@ import Logo from '../utils/socializer-logo.png'
 
 
 const Navbar = () => {
-
+  const [user, setUser] = useState<IUser | null>();
   const { userProfile, addUser, removeUser } = useAuthStore();
 
   return (
@@ -37,6 +37,7 @@ const Navbar = () => {
           <div className='flex gap-5 md:gap-10'>
             <Link href='/upload'>
               <button className='border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2'>
+                {/* add a icon to the button */}
                 <IoMdAdd className='text-xl' />{' '}
                 <span className='hidden md:block'>Upload </span>
               </button>

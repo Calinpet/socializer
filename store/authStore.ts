@@ -7,6 +7,8 @@ const authStore = (set: any) => ({
 
   addUser: (user: any) => set({ userProfile: user }), 
   removeUser: () => ({ userProfile : null})
+
+  
 });
 
 
