@@ -99,6 +99,17 @@ const Upload = () => {
             )}
           </div>
         </div>
+        <div className='flex flex-col gap-3 pb-10'>
+              <label className='text-md font-medium'>Caption</label>
+              <input 
+              type="text" 
+              value=""
+              onChange={() => {}}
+              className="rounded outline-none text-md border-2 border-gray-200 p-2"
+              />
+              
+
+        </div>
       </div>
     </div>
   )
