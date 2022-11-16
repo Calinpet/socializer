@@ -18,6 +18,8 @@ const Upload = () => {
   const [savingPost, setSavingPost] = useState<Boolean>(false);
   const [category, setCategory] = useState(topics[0].name)
 
+  const { userProfile }: { userProfile: any} = useAuthStore();
+
   // create the callback function for uploadVideo
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
@@ -40,7 +42,7 @@ const Upload = () => {
   }
 
   const handlePost = async () => {
-    if(caption && videoAsset?._id && category) {
+    if (caption && videoAsset?._id && category) {
       setSavingPost(true);
 
       const document = {
@@ -49,9 +51,14 @@ const Upload = () => {
         video: {
           _type: 'file',
           asset: {
-            _type:'reference',
+            _type: 'reference',
             _ref: videoAsset?._id
           }
+        },
+        userId: userProfile?._id,
+        postedBy: {
+          _type: 'postedBy',
+          _ref: userProfile?._id
         }
       }
     }
