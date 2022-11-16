@@ -37,8 +37,8 @@ const Upload = () => {
   }
 
   return (
-    <div className='flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center'>
-      <div className=' bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6'>
+    <div className='flex w-full h-full absolute left-0 top-[150px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center'>
+      <div className=' bg-white rounded-lg xl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-between items-center p-14 pt-6'>
         <div>
           <div>
             <p className='text-2xl font-bold'>Upload video</p>
@@ -123,13 +123,20 @@ const Upload = () => {
             ))}
           </select>
           <div className="flex gap-6 mt-10">
-              <button
-              onClick={() => {}}
+            <button
+              onClick={() => { }}
               type="button"
               className='border-gray-300 border text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
-              >
-                Discard
-              </button>
+            >
+              Discard
+            </button>
+            <button
+              onClick={() => { }}
+              type="button"
+              className='bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+            >
+              Post
+            </button>
           </div>
         </div>
       </div>
